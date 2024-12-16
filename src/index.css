@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul, li, a {
+  text-decoration-line: none;
+  list-style: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home_subtitle {
+  margin: 15px 40px;
+}
+
+.active {
+  color: red;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.nav_item {
+  text-transform: uppercase;
+}
+
+.content {
+  text-align: center;
+  padding: 40px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 20px;
+}
+
+.list_item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #c3c3c3;
+  border-radius: 12px;
+}
+
+.list_item p {
+  padding: 10px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.card_info {
+  display: flex;
+  flex-direction: column;
+  background-color: #cfcfcf;
+  border-radius: 12px;
+}
+
+.card_info .title {
+  margin: 14px 0;
+}
+
+.card_text {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  font-size: 1.5rem;
+  gap: 8px;
+  color: #444;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+.card_info img {
+  border-radius: 14px;
+}
+
+
+.episode_list, 
+.location_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(90px, 1fr));
+}
+
+.not_found_title {
+  margin: 50px 0;
+  color: #ff0000;
+}
+
+.paragraph,
+.description,
+.home_list {
+  text-align: start;
+  font-size: 1.5rem;
+  margin-top: 14px;
+}
