@@ -1,4 +1,5 @@
 import React from 'react';
+import './formStyle.css'
 import { Route,  Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Episodes } from './components/Episodes';
@@ -9,6 +10,8 @@ import { Episod } from './components/Episod';
 import { Location } from './components/Location';
 import { NotFound } from './components/notFound';
 import { HomeLayout } from './layout/HomeLayout';
+import { Signin } from './components/Signin';
+import { PrivateRouters } from './components/PrivateRoutes';
 
 function App() {
   return (
@@ -16,17 +19,18 @@ function App() {
       <Routes>
         <Route path='/' element={<HomeLayout />}>
           <Route index element={<Home />} />
-          <Route path='heroes' element={<Heroes />}>
+          <Route path='heroes' element={<PrivateRouters><Heroes /></PrivateRouters>}>
             <Route path=":id" element={<Hero />} />
           </Route>
-          <Route path='locations' element={<Locations />}>
+          <Route path='locations' element={<PrivateRouters><Locations /></PrivateRouters>}>
             <Route path=':id' element={<Location />} />
           </Route>
-          <Route path='episodes' element={<Episodes />}>
+          <Route path='episodes' element={<PrivateRouters><Episodes /></PrivateRouters>}>
             <Route path=':id' element={<Episod />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Route>
+        <Route path='login' element={<Signin />} />
       </Routes>
     </>
   );
