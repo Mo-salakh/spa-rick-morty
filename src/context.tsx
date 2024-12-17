@@ -1,6 +1,4 @@
 import React, { createContext, useState } from "react";
-
-
 interface AppInterface {
     user: User | null;
     setUser: React.Dispatch<React.SetStateAction<User | null>>;
@@ -8,8 +6,8 @@ interface AppInterface {
     setIsSigned: React.Dispatch<React.SetStateAction<boolean>>;
     gender: string
     setGender: React.Dispatch<React.SetStateAction<string>>;
-    signupSubmit: (userData: User) => void;
-    signin: (email: string, password: string) => boolean;
+    signin: (userData: User) => void;
+    signup: (email: string, password: string) => boolean;
     signout: any;
 }
 
@@ -30,34 +28,35 @@ interface ProviderProp {
 export const AppContext = createContext< AppInterface | null>(null)
 
 export function AppProvider({ children }: ProviderProp) {
+
     const [user, setUser] = useState<User | null>(() => {
         try {
-            return JSON.parse(localStorage.getItem('user') || 'null');
-        } catch {
-            return null;
+            const storedUser = localStorage.getItem('user');
+            return storedUser ? JSON.parse(storedUser) : null;
+        }
+        catch {
+           return null
         }
     });
     const [gender, setGender] = useState<string>('');
-    const [isSigned, setIsSigned] = useState(false);
+    const [isSigned, setIsSigned] = useState<boolean>(false);
 
-    function signupSubmit(userData: User) {
-        if (!userData.email || !userData.password) {
-            console.error('Некорректные данные пользователя');
-            return;
-        }
+    function signin(userData: User) {
         setUser(userData);
-
         setIsSigned(true);
+        localStorage.setItem('user', JSON.stringify(userData)) 
     }
 
-    function signin(email: string, password: string): boolean {
+    function signup(email: string, password: string): boolean {
         if (!user) return false;
-        setIsSigned(true);
-        return user.email === email && user.password === password;
+        if(user.email === email && user.password === password) {
+            setIsSigned(true);
+            return true
+        }
+        return false
     }
 
     function signout(cb: () => {}) {
-        setUser(null)
         setIsSigned(false);
         cb()
     }
@@ -69,8 +68,8 @@ export function AppProvider({ children }: ProviderProp) {
         setIsSigned,
         gender,
         setGender,
-        signupSubmit,
         signin,
+        signup,
         signout,
     };
 

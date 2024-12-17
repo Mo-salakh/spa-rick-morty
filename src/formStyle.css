@@ -1,11 +1,12 @@
+.signin {
+  margin: 20px 0;
+}
+
 .signin label {
     display: flex;
     flex-direction: column;
     
   }
-  
-  
-  
   
   button {
     border: none;
@@ -19,13 +20,13 @@
   }
   
   
-  .signUp_content {
+  .signin_content {
     background-color: #f1f1f1;
     margin-bottom: 80px;
     padding: 2rem;
   }
   
-  .signUp {
+  .signin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +48,7 @@
     margin-bottom: 15px;
   }
   
-  .signUp .label {
+  .signin .label {
     display: flex;
     flex-direction: column;
     
@@ -84,4 +85,9 @@
   
   .error-message {
     color: red; /* Дополнительное сообщение об ошибке */
+  }
+
+  .auth_text {
+    text-align: center;
+    margin-top: 20px;
   }

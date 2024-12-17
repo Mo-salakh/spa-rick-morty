@@ -11,9 +11,9 @@ export function Signin() {
 
 
   const {
-    setUser,
     gender,
     setGender,
+    signin
   } = context;
 
   const formRef = useRef<HTMLFormElement | null>(null)
@@ -21,6 +21,10 @@ export function Signin() {
   const location = useLocation()
 
   const from = location.state?.from || '/'
+
+
+  console.log('signin: ',location);
+  
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,10 +34,11 @@ export function Signin() {
     let gender = e.currentTarget.gender.value
     let password = e.currentTarget.password.value
     let confirmPassword = e.currentTarget.confirmPassword.value
-    let signUpData = { name, nickname, email, gender, password, confirmPassword }
+    
+    let signinData = { name, nickname, email, gender, password, confirmPassword }
 
     if (password === confirmPassword) {
-      setUser(signUpData);
+      signin(signinData);
       navigate(from, {replace: true})
       formRef.current?.reset()
     } else {
@@ -42,9 +47,9 @@ export function Signin() {
   };
 
   return (
-    <div className='signUp_content'>
+    <div className='signin_content'>
     <h1 className="title">Регистрация</h1>
-    <form className='signUp' onSubmit={handleSubmit} ref={formRef}>
+    <form className='signin' onSubmit={handleSubmit} ref={formRef}>
       <TextInput
         label="Имя"
         placeHolder='Ваше Имя'

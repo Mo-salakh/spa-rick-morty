@@ -12,6 +12,7 @@ import { NotFound } from './components/notFound';
 import { HomeLayout } from './layout/HomeLayout';
 import { Signin } from './components/Signin';
 import { PrivateRouters } from './components/PrivateRoutes';
+import { AuthLayout } from './layout/AuthLayout';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route path='*' element={<NotFound />} />
         </Route>
+        <Route path='auth' element={<AuthLayout />} />
         <Route path='login' element={<Signin />} />
       </Routes>
     </>

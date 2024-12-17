@@ -10,8 +10,8 @@ export function PrivateRouters({children} : any) {
         throw new Error('Ошибка в компоненте PrivateRouters')
     }
 
-    if(context.user === null) {
-        return <Navigate to={'/login'} state={{from: location.pathname}} replace />
+    if(context.isSigned === false) {
+        return <Navigate to={'/auth'} state={{from: location.pathname}} replace />
     }
 
     return children
