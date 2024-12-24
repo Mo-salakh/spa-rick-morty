@@ -1,15 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context';
 
-interface InputProps {
-  name: string;
-  label: string;
-  value?: string;
-  type?: 'text' | 'email' | 'password' | 'emailIn';
-  required?: boolean;
-  error?: boolean
-  placeHolder?: string;
-}
 
 export function TextInput({
   name,
@@ -19,7 +10,7 @@ export function TextInput({
   required = false,
   placeHolder,
   error
-}: InputProps) {
+}) {
   const context = useContext(AppContext);
 
   if (context === null) {

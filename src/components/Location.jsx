@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom"
-import { locations } from "../location";
+import { useSearchLocations } from "./useSearchLoactions";
+import { useContext } from "react";
+import { AppContext } from "../context";
 
 export function Location() {
 
     const { id } = useParams()
+    const context = useContext(AppContext)
+    const { qualityL } = context
+    const { locations } = useSearchLocations(qualityL)
 
     const location = locations.find(location => location.id === Number(id));
 

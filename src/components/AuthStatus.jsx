@@ -8,11 +8,20 @@ export function AuthStatus() {
     if(context === null) {
         throw new Error('Error in context in component AuthStatus')
     }
+    
 
     const navigate = useNavigate()
     
-    const { user, signout, isSigned } = context
+    const { user, signout, setIsSigned, isSigned } = context
 
+    
+    function handleSignout() {
+        setIsSigned(false)
+        signout(() => {
+            navigate('/')
+        })
+    }
+    
     if(!isSigned) {
         return (
             <>
@@ -20,19 +29,13 @@ export function AuthStatus() {
                 <button className="btn"><NavLink to={'/auth'}>Войти</NavLink></button>
             </>
         )
+    } else {
+        return (
+            <>
+                <p> Добро пожаловать, {user?.name} </p>
+                <button onClick={handleSignout}>Выход</button>
+            </>
+        )
     }
-
-    function handleSignout() {
-        signout(() => {
-            navigate('/')
-        })
-    }
-
-    return (
-        <>
-            <p> Добро пожаловать, {user?.name} </p>
-            <button onClick={handleSignout}>Выход</button>
-        </>
-    )
 
 }

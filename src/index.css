@@ -56,10 +56,10 @@ code {
 }
 
 .list {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(2, minmax(min-content, 300px));
   gap: 20px;
   margin: 0 20px;
 }
@@ -92,6 +92,7 @@ code {
   flex-direction: column;
   background-color: #cfcfcf;
   border-radius: 12px;
+  position: relative;
 }
 
 .card_info .title {
@@ -110,6 +111,14 @@ code {
   border-radius: 10px;
 }
 
+.close {
+  position: absolute;
+  font-size: 2rem;
+  color: #444;
+  cursor: pointer;
+  right: 12px;
+  top: 8px;
+}
 
 .card_info img {
   border-radius: 14px;
@@ -118,8 +127,7 @@ code {
 
 .episode_list, 
 .location_list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(1, minmax(150px, 360px));
   grid-template-rows: repeat(auto-fill, minmax(90px, 1fr));
 }
 

@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from 'react';
 import { AppContext } from '../context';
 import { TextInput } from './TextInput';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export function Signup() {
 
@@ -17,14 +17,12 @@ export function Signup() {
 
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const formRef = useRef<HTMLFormElement | null>(null)
+  const formRef = useRef(null)
   const navigate = useNavigate()
-  const location = useLocation()
 
-  console.log(location);
   
 
-function handleSubmitIn(e: React.FormEvent<HTMLFormElement>) {
+function handleSubmitIn(e) {
   e.preventDefault();
   let email = e.currentTarget.emailin.value;
   let password = e.currentTarget.passwordin.value;

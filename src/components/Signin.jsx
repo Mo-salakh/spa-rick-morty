@@ -16,19 +16,16 @@ export function Signin() {
     signin
   } = context;
 
-  const formRef = useRef<HTMLFormElement | null>(null)
+  const formRef = useRef(null)
   const navigate = useNavigate()
   const location = useLocation()
 
   const from = location.state?.from || '/'
-
-
-  console.log('signin: ',location);
   
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let name = (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value;
+    let name = (e.currentTarget.elements.namedItem('name')).value;
     let nickname = e.currentTarget.nickname.value
     let email = e.currentTarget.email.value
     let gender = e.currentTarget.gender.value

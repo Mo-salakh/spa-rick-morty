@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthStatus } from "../components/AuthStatus";
+import { Suspense } from "react";
 
 export function HomeLayout() {
     return (
@@ -7,7 +8,7 @@ export function HomeLayout() {
             <nav className="nav">
                 <ul className="nav_list">
                     <li className="nav_item"><NavLink to={'/'}>Главная</NavLink></li>
-                    <li className="nav_item"><NavLink to={'/heroes'}>Герои</NavLink></li>
+                    <li className="nav_item"><NavLink to={'/characters'}>Герои</NavLink></li>
                     <li className="nav_item"><NavLink to={'/locations'}>Локации</NavLink></li>
                     <li className="nav_item"><NavLink to={'/episodes'}>Эпизоды</NavLink></li>
                     <AuthStatus />
@@ -15,7 +16,9 @@ export function HomeLayout() {
             </nav>
 
             <div className="content">
-                <Outlet />
+                <Suspense fallback={<h2 className="title">Загрузка страницы...</h2>}>
+                    <Outlet />
+                </Suspense>
             </div>
         </>
     )
