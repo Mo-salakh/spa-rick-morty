@@ -10,9 +10,9 @@ export function useSearchEpisodes(n) {
         fetch(`https://rickandmortyapi.com/api/episode?page=${n}`)
         .then(response => response.json())
         .then((data) => {
-            setEpisodes((prevLocations) => {
-                const newLocations = data.results.filter((location => !prevLocations.some(prevLoc => prevLoc.id === location.id)))
-                return [...prevLocations, ...newLocations];
+            setEpisodes((prevEpisodes) => {
+                const newEpisodes = data.results.filter((location => !prevEpisodes.some(prevLoc => prevLoc.id === location.id)))
+                return [...prevEpisodes, ...newEpisodes];
             });
             setHasMore(data.info?.next !== null);
             setLoading(false);

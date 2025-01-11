@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Routes>
+      <Routes basename='/spa-rick-morty'>
         <Route path='/' element={<HomeLayout />}>
           <Route index element={<Home />} />
           <Route path='characters' element={<PrivateRouters><Characters /></PrivateRouters>}>
