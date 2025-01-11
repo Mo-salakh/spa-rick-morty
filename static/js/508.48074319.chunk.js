@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkspa_task=self.webpackChunkspa_task||[]).push([[508],{508:(s,e,t)=>{t.r(e),t.d(e,{NotFound:()=>c});var n=t(43),u=t(733),a=t(579);function c(){const s=(0,u.Zp)();return(0,n.useEffect)((()=>{setTimeout((()=>{s(-1)}),3e3)}),[]),(0,a.jsx)("h1",{className:"not_found_title",children:"\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430 404"})}}}]);
+//# sourceMappingURL=508.48074319.chunk.js.map
