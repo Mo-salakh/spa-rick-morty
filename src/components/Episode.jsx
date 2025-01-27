@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom"
-import { episodes } from "../episode";
+import { AppContext } from "../context";
+import { useSearchEpisodes } from "./useSeacrhEpisodes";
 
-export function Episod() {
+export function Episode() {
 
     const { id } = useParams()
+    const context = useContext(AppContext)
+
+    const { qualityE } = context
+    const { episodes } = useSearchEpisodes(qualityE)
 
     const episode = episodes.find(hero => hero.id === Number(id));
 

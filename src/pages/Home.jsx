@@ -8,7 +8,7 @@ export function Home() {
             <p className="description">Что вы найдете на нашем сайте:</p>
             <ul className="home_list">
                 <li className="home_item">
-                    <NavLink to={'/heroes'}>Герои</NavLink>: Узнайте больше о Рике, Морти и других персонажах, их характерах и мотивациях.
+                    <NavLink to={'/characters'}>Герои</NavLink>: Узнайте больше о Рике, Морти и других персонажах, их характерах и мотивациях.
                 </li>
                 <li className="home_item">
                     <NavLink to={'/locations'}>Миры</NavLink>: Погрузитесь в многообразие вселенных, которые Рик и Морти исследуют, от забавных до абсурдных.
